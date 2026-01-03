@@ -13,6 +13,11 @@
 #define QUEUE_SIZE 100
 
 
-typedef struct 
+typedef struct
+{
+    node_t *front;
+    node_t *rear;
+    int size;
+} queue_t;
 
 #endif
