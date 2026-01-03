@@ -24,7 +24,12 @@ typedef struct
 /********************************************************º¯ÊýÉùÃ÷*********************************************************/
 
 queue_t* initLinkedQueue();
-
+bool isLinkedQueueEmpty(queue_t *q);
+bool enLinkedQueue(queue_t *q, elemType e);
+bool deLinkedQueue(queue_t *q, elemType *e);
+bool peekLinkedQueue(queue_t *q, elemType *e);
+int readLinkQueueLen(queue_t *q);
+void destroyLinkedQueue(queue_t *q);
 
 /************************************************************************************************************************/
 #endif
