@@ -16,18 +16,17 @@ typedef struct
     node_t *front;
     node_t *rear;
     int size;
-} queue_t;
-
+} linked_queue_t;
 
 /********************************************************º¯ÊýÉùÃ÷*********************************************************/
 
-queue_t* initLinkedQueue();
-bool isLinkedQueueEmpty(queue_t *q);
-bool enLinkedQueue(queue_t *q, elemType e);
-bool deLinkedQueue(queue_t *q, elemType *e);
-bool peekLinkedQueue(queue_t *q, elemType *e);
-int readLinkedQueueLen(queue_t *q);
-void destroyLinkedQueue(queue_t *q);
+linked_queue_t *initLinkedQueue();
+bool isLinkedQueueEmpty(linked_queue_t *q);
+bool enLinkedQueue(linked_queue_t *q, elemType e);
+bool deLinkedQueue(linked_queue_t *q, elemType *e);
+bool peekLinkedQueue(linked_queue_t *q, elemType *e);
+int readLinkedQueueLen(linked_queue_t *q);
+void destroyLinkedQueue(linked_queue_t *q);
 
 /************************************************************************************************************************/
 #endif
