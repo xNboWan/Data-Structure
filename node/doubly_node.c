@@ -10,6 +10,7 @@
 #include "doubly_node.h"
 
 /*********************************************************函数定义********************************************************/
+
 /**
  * 私有函数,
  * 用于创建新节点
@@ -52,7 +53,7 @@ doubly_linked_list_t *initDoublyNode(void)
  */
 bool isDoublyNodeEmpty(doubly_linked_list_t *DL)
 {
-    if(!DL)
+    if (!DL)
     {
         return false;
     }
@@ -65,16 +66,16 @@ bool isDoublyNodeEmpty(doubly_linked_list_t *DL)
  */
 void destroyDoublyNode(doubly_linked_list_t *DL)
 {
-    if(!DL)
+    if (!DL)
     {
         return;
     }
     doubly_node_t *current_doubly_node = DL->head;
-    while(current_doubly_node)
+    while (current_doubly_node)
     {
-    doubly_node_t *current_doubly_node_next = current_doubly_node->next;
-    free(current_doubly_node);
-    current_doubly_node = current_doubly_node_next;
+        doubly_node_t *current_doubly_node_next = current_doubly_node->next;
+        free(current_doubly_node);
+        current_doubly_node = current_doubly_node_next;
     }
     free(DL);
 }
@@ -84,7 +85,7 @@ void destroyDoublyNode(doubly_linked_list_t *DL)
  */
 bool insertDoubleHead(doubly_linked_list_t *DL, elemType e)
 {
-    if(!DL)
+    if (!DL)
     {
         return false;
     }
@@ -93,8 +94,7 @@ bool insertDoubleHead(doubly_linked_list_t *DL, elemType e)
     {
         return false;
     }
-    
-    
+
     if (isDoublyNodeEmpty(DL) == true)
     {
         DL->head = new_doubly_node;
@@ -102,9 +102,9 @@ bool insertDoubleHead(doubly_linked_list_t *DL, elemType e)
     }
     else
     {
-    new_doubly_node->next = DL->head;
-    DL->head->prev = new_doubly_node;
-    DL->head = new_doubly_node;
+        new_doubly_node->next = DL->head;
+        DL->head->prev = new_doubly_node;
+        DL->head = new_doubly_node;
     }
 
     DL->size++;
@@ -116,7 +116,7 @@ bool insertDoubleHead(doubly_linked_list_t *DL, elemType e)
  */
 bool insertDoubleTail(doubly_linked_list_t *DL, elemType e)
 {
-    if(!DL)
+    if (!DL)
     {
         return false;
     }
@@ -126,7 +126,7 @@ bool insertDoubleTail(doubly_linked_list_t *DL, elemType e)
     {
         return false;
     }
-    
+
     DL->size++;
 
     if (isDoublyNodeEmpty(DL) == true)
@@ -196,7 +196,7 @@ bool insertDoublyNodeWithPos(doubly_linked_list_t *DL, int pos, elemType e)
  */
 bool deleteDoubleHead(doubly_linked_list_t *DL, elemType *e)
 {
-    if(!DL || !DL->head)
+    if (!DL || !DL->head)
     {
         return false;
     }
@@ -204,7 +204,7 @@ bool deleteDoubleHead(doubly_linked_list_t *DL, elemType *e)
     doubly_node_t *doubly_node_to_delete = DL->head;
     *e = doubly_node_to_delete->data;
 
-    if(DL->head == DL->tail)
+    if (DL->head == DL->tail)
     {
         DL->head = NULL;
         DL->tail = NULL;
@@ -252,23 +252,23 @@ bool deleteDoubleTail(doubly_linked_list_t *DL, elemType *e)
  */
 bool deleteDoublyWithPos(doubly_linked_list_t *DL, int pos, elemType *e)
 {
-    if(!DL || !DL->head || pos < 0 || pos >= DL->size)
+    if (!DL || !DL->head || pos < 0 || pos >= DL->size)
     {
         return false;
     }
-    
-    if(pos == 0)
+
+    if (pos == 0)
     {
         deleteDoubleHead(DL, e);
         return true;
     }
-    
-    if(pos == DL->size - 1)
+
+    if (pos == DL->size - 1)
     {
         deleteDoubleTail(DL, e);
         return true;
     }
-    
+
     doubly_node_t *current_doubly_node = DL->head;
 
     for (int i = 0; i < pos; i++)
@@ -301,12 +301,12 @@ static void switchNum(elemType *a, elemType *b)
  */
 bool reverseDoublyLinkedList(doubly_linked_list_t *DL)
 {
-    if(!DL || !DL->head)
+    if (!DL || !DL->head)
     {
         return false;
     }
 
-    if(DL->size < 2)
+    if (DL->size < 2)
     {
         return true;
     }
@@ -347,7 +347,7 @@ bool updateDoublyNode(doubly_linked_list_t *DL, int pos, elemType e)
  * 从头节点开始查找数据,
  * 返回值为节点下标值
  */
-int findDoublyNode(doubly_linked_list_t * DL, elemType e)
+int findDoublyNode(doubly_linked_list_t *DL, elemType e)
 {
     if (!DL || !DL->head)
     {
@@ -357,9 +357,9 @@ int findDoublyNode(doubly_linked_list_t * DL, elemType e)
     doubly_node_t *current_doubly_node = DL->head;
     int pos = 0;
 
-    while(current_doubly_node != NULL)
+    while (current_doubly_node != NULL)
     {
-        if(current_doubly_node->data == e)
+        if (current_doubly_node->data == e)
         {
             return pos;
         }
@@ -373,9 +373,9 @@ int findDoublyNode(doubly_linked_list_t * DL, elemType e)
 /**
  * 读取链表长度
  */
-int readDoublyNodeLen(doubly_linked_list_t * DL)
+int readDoublyNodeLen(doubly_linked_list_t *DL)
 {
-    if(!DL)
+    if (!DL)
     {
         return -1;
     }
@@ -385,7 +385,7 @@ int readDoublyNodeLen(doubly_linked_list_t * DL)
 /**
  * 正向遍历列表
  */
-bool readDoublyNodeListForward(doubly_linked_list_t * DL)
+bool readDoublyNodeListForward(doubly_linked_list_t *DL)
 {
     if (!DL)
     {
@@ -406,7 +406,7 @@ bool readDoublyNodeListForward(doubly_linked_list_t * DL)
 /**
  * 反向遍历列表
  */
-bool readDoublyNodeListBackward(doubly_linked_list_t * DL)
+bool readDoublyNodeListBackward(doubly_linked_list_t *DL)
 {
     if (!DL)
     {
@@ -427,7 +427,7 @@ bool readDoublyNodeListBackward(doubly_linked_list_t * DL)
 /**
  * 传入参数pos以读取任意位置数据值
  */
-bool readDoublyNodeWithPos(doubly_linked_list_t * DL, int pos, elemType *e)
+bool readDoublyNodeWithPos(doubly_linked_list_t *DL, int pos, elemType *e)
 {
     if (!DL || !DL->head || pos < 0 || pos >= DL->size)
     {
